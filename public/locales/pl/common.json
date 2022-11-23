@@ -1,0 +1,12 @@
+{
+  "languages": {
+    "pl": "Polski",
+    "en": "English"
+  },
+  "navbar": {
+    "home": "Strona główna",
+    "contact": "Kontakt",
+    "pricing": "Cennik",
+    "attractions": "Atrakcje"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "languages": {
+    "pl": "Polski",
+    "en": "English"
+  },
+  "navbar": {
+    "home": "Home",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "attractions": "Attractions"
+  }
+}
