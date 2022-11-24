@@ -1,0 +1,20 @@
+{
+  "attractionNames": [
+    "Trasa: Bułka z masłem",
+    "Trasa: Całkiem średnia",
+    "Trasa: Koniec żartów",
+    "Trasa: Podłoga to lawa",
+    "Trasa: Na koniec świata",
+    "Trasa: Highway to Hell",
+    "Wszystkie trasy, cały dzień"
+  ],
+  "table": {
+    "header": {
+      "attraction": "Atrakcja",
+      "normalTicket": "Bilet normalny",
+      "childTicket": "Bilet dziecięcy",
+      "studentTicket": "Bilet studencki",
+      "seniorTicket": "Bilet seniora"
+    }
+  }
+}

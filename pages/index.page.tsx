@@ -26,6 +26,7 @@ export default function Home() {
             <Title
               order={1}
               sx={{
+                textAlign: "center",
                 background:
                   theme === "light"
                     ? "radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.5) 100%)"

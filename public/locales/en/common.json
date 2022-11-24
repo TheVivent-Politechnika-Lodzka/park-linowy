@@ -1,4 +1,6 @@
 {
+  "currency": "PLN",
+  "notApplicable": "N/A",
   "languages": {
     "pl": "Polski",
     "en": "English"

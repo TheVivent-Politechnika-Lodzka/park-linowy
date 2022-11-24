@@ -1,0 +1,20 @@
+{
+  "attractionNames": [
+    "Route: Easy Peasy",
+    "Route: Pretty... Average",
+    "Route: This is where the fun begins",
+    "Route: Floor is Lava",
+    "Route: The End",
+    "Route: Highway to Hell",
+    "All routes, all day"
+  ],
+  "table": {
+    "header": {
+      "attraction": "Attraction",
+      "normalTicket": "Normal Ticket",
+      "childTicket": "Child Ticket",
+      "studentTicket": "Student Ticket",
+      "seniorTicket": "Senior Ticket"
+    }
+  }
+}

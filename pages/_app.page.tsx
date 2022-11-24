@@ -1,16 +1,6 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import {
-  Affix,
-  BackgroundImage,
-  Box,
-  Center,
-  Container,
-  Image,
-  MantineProvider,
-  SegmentedControl,
-  Tabs,
-} from "@mantine/core";
+import { Affix, Center, Container, Text, MantineProvider } from "@mantine/core";
 import { appWithTranslation } from "next-i18next";
 import useTheme from "../hooks/useTheme";
 import NextRouterProgressBar from "../components/NextRouterProgressBar";
@@ -41,7 +31,6 @@ function App({ Component, pageProps }: AppProps) {
         }}
       >
         <NextRouterProgressBar />
-        <MultiSwitch />
         <Container
           fluid
           p={0}
@@ -50,13 +39,24 @@ function App({ Component, pageProps }: AppProps) {
         >
           <NavBar />
         </Container>
-        <Container fluid m={0} p={0} sx={{ height: "93vh" }}>
+        <Container
+          fluid
+          m={0}
+          p={0}
+          sx={{ height: "93vh", position: "relative" }}
+        >
+          <MultiSwitch />
           <Component {...pageProps} />
         </Container>
         <Affix sx={{ backgroundColor: "#333", width: "100vw" }}>
           <Center sx={{ color: "#AAA" }}>
-            &copy; {new Date().getFullYear()} OnlyRopes - All rights reserved by
-            Adam Kapuściński
+            <Text ta="center">
+              <Text>
+                &copy; {new Date().getFullYear()} OnlyRopes - All rights
+                reserved
+              </Text>
+              <Text>by Adam Kapuściński</Text>
+            </Text>
           </Center>
         </Affix>
       </MantineProvider>
