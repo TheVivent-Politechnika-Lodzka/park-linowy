@@ -5,6 +5,7 @@ import PriceCell, { PriceCellProps } from "./PriceCell";
 import ropepark_pricing1 from "../../public/images/ropepark_pricing1.jpg";
 import ropepark_pricing2 from "../../public/images/ropepark_pricing2.jpg";
 import useBreakpoint from "../../hooks/useBreakpoint";
+import useTheme from "../../hooks/useTheme";
 
 // prettier-ignore
 const pricing: PriceCellProps[][] = [
@@ -20,6 +21,7 @@ const pricing: PriceCellProps[][] = [
 export default function Pricing() {
   const { t } = useTranslation("pages/pricing/index");
   const { isMobile } = useBreakpoint();
+  const [theme] = useTheme();
 
   return (
     <Container fluid p={0} sx={{ height: "100%" }}>
@@ -64,6 +66,7 @@ export default function Pricing() {
                   backdropFilter: "blur(100px)",
                   marginTop: isMobile ? "3rem" : 0,
                   width: isMobile ? "100%" : "80%",
+                  backgroundColor: theme === "dark" ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)",
                 }}
               >
                 <thead>

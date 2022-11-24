@@ -15,11 +15,13 @@ import { IconMail, IconMapPin, IconPhone, IconRoute } from "@tabler/icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../../hooks/useBreakpoint";
+import useTheme from "../../hooks/useTheme";
 import ropepark_contact1 from "../../public/images/ropepark_contact1.jpg";
 
 export default function Contact() {
   const { t } = useTranslation("pages/contact/index");
   const { isMobile } = useBreakpoint();
+  const [theme] = useTheme();
 
   return (
     <Container fluid p={0} sx={{ height: "100%" }}>
@@ -48,7 +50,15 @@ export default function Contact() {
               </Center>
             </Grid.Col>
             <Grid.Col xs={12} lg={6}>
-              <Table highlightOnHover>
+              <Table
+                highlightOnHover
+                sx={{
+                  backgroundColor:
+                    theme === "dark"
+                      ? "rgba(0, 0, 0, 0.5)"
+                      : "rgba(255, 255, 255, 0.5)",
+                }}
+              >
                 <tbody>
                   <tr>
                     <td>

@@ -3,10 +3,9 @@ import { NextLink } from "@mantine/next";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../hooks/useBreakpoint";
+import useTheme from "../hooks/useTheme";
 
 const menuStyleBase: CSSObject = {
-  borderLeft: "1px solid",
-  borderRight: "1px solid",
   borderColor: "gray",
   display: "flex",
   justifyContent: "center",
@@ -19,7 +18,7 @@ const menuStyleBase: CSSObject = {
   color: "gray",
   "&:hover": {
     transform: "scaleX(1.1)",
-    border: "1px solid",
+    color: "black",
     transition: "all 0.3s ease",
   },
   transition: "all 0.1s ease",
@@ -28,17 +27,23 @@ const menuStyleBase: CSSObject = {
 export default function NavBar() {
   const { t } = useTranslation("common", { keyPrefix: "navbar" });
   const { isDesktop, isMobile, isTablet } = useBreakpoint();
+  const [theme] = useTheme();
   const [menuStyle, setMenuStyle] = useState<CSSObject>(menuStyleBase);
 
   useEffect(() => {
     const fontSize = isDesktop ? "2.5rem" : isTablet ? "1.5rem" : "1rem";
     const padding = isDesktop ? "0 0.5rem" : isTablet ? "0 0.5rem" : "0 0.5rem";
+    const hoverColor = theme === "dark" ? "white" : "black";
     setMenuStyle((old) => ({
       ...old,
       fontSize,
       padding,
+      "&:hover": {
+        ...old["&:hover"] as object,
+        color: hoverColor,
+      },
     }));
-  }, [isDesktop, isMobile, isTablet]);
+  }, [isDesktop, isMobile, isTablet, theme]);
 
   return (
     <>
