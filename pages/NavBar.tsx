@@ -1,16 +1,5 @@
-import {
-  Button,
-  Center,
-  CSSObject,
-  Grid,
-  Group,
-  Paper,
-  Sx,
-  Tabs,
-  TabsValue,
-} from "@mantine/core";
+import { Center, CSSObject, Paper } from "@mantine/core";
 import { NextLink } from "@mantine/next";
-import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../hooks/useBreakpoint";
@@ -53,7 +42,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Center >
+      <Center>
         <Paper
           component={NextLink}
           href={{ pathname: "/" }}

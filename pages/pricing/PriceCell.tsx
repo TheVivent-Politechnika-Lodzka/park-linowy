@@ -1,4 +1,4 @@
-import { Group, Space, Text, Title } from "@mantine/core";
+import { Group, Text, Title } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 
 export interface PriceCellProps {

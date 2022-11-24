@@ -1,0 +1,8 @@
+{
+  "contact": {
+    "phone": "Phone number",
+    "email": "Email address",
+    "address": "Address",
+    "nip": "NIP"
+  }
+}

@@ -1,11 +1,9 @@
 import { BackgroundImage, Box, Center, Container, Table } from "@mantine/core";
-import { t } from "i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
 import PriceCell, { PriceCellProps } from "./PriceCell";
 import ropepark_pricing1 from "../../public/images/ropepark_pricing1.jpg";
 import ropepark_pricing2 from "../../public/images/ropepark_pricing2.jpg";
-import useTheme from "../../hooks/useTheme";
 import useBreakpoint from "../../hooks/useBreakpoint";
 
 // prettier-ignore
@@ -24,7 +22,7 @@ export default function Pricing() {
   const { isMobile } = useBreakpoint();
 
   return (
-    <Container fluid sx={{ height: "100%" }}>
+    <Container fluid p={0} sx={{ height: "100%" }}>
       <BackgroundImage
         src={!isMobile ? ropepark_pricing2.src : ""}
         sx={{ height: "100%", width: "100%", position: "relative" }}

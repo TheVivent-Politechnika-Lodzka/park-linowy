@@ -1,9 +1,5 @@
 import {
-  BackgroundImage,
-  Button,
-  SegmentedControl,
   SimpleGrid,
-  Image,
   Box,
   Center,
   Switch,
@@ -14,7 +10,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../hooks/useBreakpoint";
 import useTheme from "../hooks/useTheme";
-import oldgear from "../public/images/oldgear.png";
 import { IconSun, IconMoonStars, IconSettings } from "@tabler/icons";
 import { FlagIcon } from "react-flag-kit";
 
