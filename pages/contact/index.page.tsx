@@ -10,9 +10,19 @@ import {
   Space,
   Group,
   Box,
+  Anchor,
 } from "@mantine/core";
-import { IconMail, IconMapPin, IconPhone, IconRoute } from "@tabler/icons";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconMail,
+  IconMapPin,
+  IconPhone,
+  IconRoute,
+} from "@tabler/icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { SP } from "next/dist/shared/lib/utils";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import useTheme from "../../hooks/useTheme";
@@ -58,12 +68,11 @@ export default function Contact() {
               <tr>
                 <td>
                   <Center inline sx={{ height: "100%" }}>
-                    <Title>{t("contact.phone")}</Title>
+                    <Title order={2}>{t("contact.phone")}</Title>
                   </Center>
                 </td>
                 <td>
                   <Center inline sx={{ height: "100%", fontSize: "1.5rem" }}>
-                    +48 360 741 229
                     <ActionIcon
                       sx={{ display: "inline" }}
                       component="a"
@@ -71,18 +80,19 @@ export default function Contact() {
                     >
                       <IconPhone stroke={3} size={30} />
                     </ActionIcon>
+                    <Space w="sm" />
+                    +48 360 741 229
                   </Center>
                 </td>
               </tr>
               <tr>
                 <td>
                   <Center inline sx={{ height: "100%" }}>
-                    <Title>{t("contact.email")}</Title>
+                    <Title order={2}>{t("contact.email")}</Title>
                   </Center>
                 </td>
                 <td>
                   <Center inline sx={{ height: "100%", fontSize: "1.5rem" }}>
-                    example@email.com
                     <ActionIcon
                       sx={{ display: "inline" }}
                       component="a"
@@ -91,21 +101,19 @@ export default function Contact() {
                     >
                       <IconMail stroke={3} size={30} />
                     </ActionIcon>
+                    <Space w="sm" />
+                    example@email.com
                   </Center>
                 </td>
               </tr>
               <tr>
                 <td>
                   <Center inline sx={{ height: "100%" }}>
-                    <Title>{t("contact.address")}</Title>
+                    <Title order={2}>{t("contact.address")}</Title>
                   </Center>
                 </td>
                 <td>
                   <Group>
-                    <Box>
-                      <Text sx={{ display: "block" }}>ul. Przykładowa 1</Text>
-                      <Text>00-000 Przykładowe Miasto</Text>
-                    </Box>
                     <ActionIcon
                       component="a"
                       href="https://goo.gl/maps/ECnNAs4hkDtguZyE7"
@@ -113,6 +121,10 @@ export default function Contact() {
                     >
                       <IconMapPin stroke={3} size={30} />
                     </ActionIcon>
+                    <Box>
+                      <Text sx={{ display: "block" }}>ul. Przykładowa 1</Text>
+                      <Text>00-000 Przykładowe Miasto</Text>
+                    </Box>
                   </Group>
                 </td>
               </tr>
@@ -126,6 +138,26 @@ export default function Contact() {
                   <Center inline sx={{ height: "100%", fontSize: "1.5rem" }}>
                     1234567890
                   </Center>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Center inline sx={{ height: "100%" }}>
+                    <Title>{t("contact.socials")}</Title>
+                  </Center>
+                </td>
+                <td>
+                  <Group>
+                    <Anchor href="https://www.twitter.com" target="_blank">
+                      <IconBrandTwitter size={30} />
+                    </Anchor>
+                    <Anchor href="https://www.facebook.com" target="_blank">
+                      <IconBrandFacebook size={30} />
+                    </Anchor>
+                    <Anchor href="https://www.instagram.com" target="_blank">
+                      <IconBrandInstagram size={30} />
+                    </Anchor>
+                  </Group>
                 </td>
               </tr>
             </tbody>

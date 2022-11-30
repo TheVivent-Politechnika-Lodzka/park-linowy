@@ -2,12 +2,10 @@ import { Center, Text } from "@mantine/core";
 
 export default function Footer() {
   return (
-    <Center sx={{ color: "#AAA" }}>
+    <Center sx={{ color: "#AAA", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
       <Text ta="center">
-        <Text>
-          &copy; {new Date().getFullYear()} OnlyRopes - All rights reserved
-        </Text>
-        <Text>by Adam Kapuściński</Text>
+        &copy; {new Date().getFullYear()} OnlyRopes - All rights reserved by
+        Adam Kapuściński
       </Text>
     </Center>
   );

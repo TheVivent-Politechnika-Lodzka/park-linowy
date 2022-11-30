@@ -51,10 +51,8 @@ function App({ Component, pageProps }: AppProps) {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backdropFilter: "blur(5px)",
           }}
         >
-
           <Component {...pageProps} />
         </AppShell>
       </MantineProvider>

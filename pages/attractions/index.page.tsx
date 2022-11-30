@@ -108,7 +108,7 @@ export default function Attractions() {
         </Center>
       </Grid.Col>
       <Grid.Col xs={12} lg={5} offsetXs={0} offsetLg={1}>
-        <Paper sx={{ height: "100%", fontSize: "2rem" }} p="xs">
+        <Paper sx={{ height: "100%", fontSize: "2rem" }} px="md" ta="justify">
           {t(`attractions.description.${activeSlide}`)}
         </Paper>
       </Grid.Col>

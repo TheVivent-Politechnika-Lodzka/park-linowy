@@ -3,6 +3,7 @@
     "phone": "Phone number",
     "email": "Email address",
     "address": "Address",
-    "nip": "NIP"
+    "nip": "NIP",
+    "socials": "Social media"
   }
 }
