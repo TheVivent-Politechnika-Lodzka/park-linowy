@@ -67,13 +67,12 @@ export default function Attractions() {
             sx={{ width: isMobile ? "100%" : isTablet ? "80%" : "60%" }}
             mt="xl"
             height={!isDesktop ? 300 : 500}
-            withIndicators
             slideSize={isMobile ? "100%" : isTablet ? "50%" : "33.333333%"}
             slideGap="md"
             dragFree
             loop
             align="start"
-            slidesToScroll={1}
+            slidesToScroll={isMobile ? 1 : isTablet ? 2 : 3}
           >
             <Track
               label={t("attractions.easy.label")}
@@ -109,8 +108,8 @@ export default function Attractions() {
         </Center>
       </Grid.Col>
       <Grid.Col xs={12} lg={5} offsetXs={0} offsetLg={1}>
-        <Paper sx={{ height: "100%" }} p="xs">
-          description
+        <Paper sx={{ height: "100%", fontSize: "2rem" }} p="xs">
+          {t(`attractions.description.${activeSlide}`)}
         </Paper>
       </Grid.Col>
       <Grid.Col xs={12} lg={5}>

@@ -1,4 +1,5 @@
 {
+  "showMore": "Show more",
   "attractions": {
     "easy": {
       "label": "Route: Easy Peasy",
@@ -40,6 +41,14 @@
     "imdead": {
       "label": "Route: Highway to Hell",
       "comment": ["I've met all people who tried to follow this route."]
-    }
+    },
+    "description": [
+      "The simplest of the routes available. Suitable only for children. The lack of any challenge makes the route not suitable even for beginners",
+      "The route is ideal for beginners and more advanced children. Its course is visible from every point on the route, so it is great for learning. It is also a great scenic route for tourists.",
+      "Destined for advanced users, the route requires skilled hands and observant eyes. The course is not obvious, which makes it also a challenge for the mind.",
+      "Route for professionals. Difficult to pass, requiring concentration and skills. An inattentive user can find himself in a dangerous situation, so we advise against taking it for people who do not have the appropriate skills.",
+      "The route for people who like real risk. Jumping over the abyss and rivers of lava are just some of the attractions available on the route.",
+      "The most dangerous route available. Only for daredevils ready to risk their lives. This route is dangerous for everyone, even for professionals. No one has yet managed to complete this route."
+    ]
   }
 }

@@ -26,7 +26,7 @@ export default function Track({ onClick, src, label }: TrackProps) {
           onClick={onClick}
           sx={{ position: "absolute", bottom: "30px", right: "20px" }}
         >
-          {t("checkComments")}
+          {t("showMore")}
         </Button>
       </BackgroundImage>
     </Carousel.Slide>

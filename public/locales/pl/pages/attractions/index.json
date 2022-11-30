@@ -1,4 +1,5 @@
 {
+  "showMore": "Dowiedz się więcej",
   "attractions": {
     "easy": {
       "label": "Trasa: Bułka z masłem",
@@ -40,6 +41,14 @@
     "imdead": {
       "label": "Trasa: Highway to Hell",
       "comment": ["Spotkałem wszystkie osoby które próbowały przejść tą trasę."]
-    }
+    },
+    "description": [
+      "Najprostsza z dostępnych tras. Nadaje się jedynie dla dzieci. Brak jakiegokolwiek wyzwania sprawia, że trasa nie nadaje się nawet dla początkujących",
+      "Trasa idealna dla początkujących oraz bardziej zaawansowanych dzieci. Jej przebieg widoczny z każdego punktu na trasie, więc świetnie nadaje się do nauki. Jest także świetną trasą widokową dla turystów.",
+      "Przeznaczona dla zaawansowanych użytkowników trasa wymagająca sprawnych rąk i spostrzegawczych oczu. Przebieg nie jest oczywisty, dzięki czemu stanowi też wyzwanie dla umysłu.",
+      "Trasa dla profesjonalistów. Trudna do przejścia, wymagająca koncentracji i umiejętności. Nieuważny użytkownik może się znaleźć w niebezpiecznej sytuacji, dlatego odradzamy jej przechodzenie osobom nieposiadającym odpowiednich umiejętności.",
+      "Trasa dla osób które lubiących prawdziwe ryzyko. Skoki nad przepaścią oraz rzeki lawy, to tylko niektóre z atrakcji dostępnych na trasie.",
+      "Najniebezpieczniajsza z dostępnych tras. Tylko dla śmiałków gotowych zaryzykować własnym życiem. Trasa ta jest niebezpieczna dla każdego, nawet dla profesjonalistów. Jeszcze żadnej osobie nie udało się przejść tej trasy."
+    ]
   }
 }
