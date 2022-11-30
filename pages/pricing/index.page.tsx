@@ -20,80 +20,45 @@ const pricing: PriceCellProps[][] = [
 
 export default function Pricing() {
   const { t } = useTranslation("pages/pricing/index");
-  const { isMobile } = useBreakpoint();
+  const { isMobile, isTablet } = useBreakpoint();
   const [theme] = useTheme();
 
   return (
-    <Container fluid p={0} sx={{ height: "100%" }}>
-      <BackgroundImage
-        src={!isMobile ? ropepark_pricing2.src : ""}
-        sx={{ height: "100%", width: "100%", position: "relative" }}
+    <Center sx={{height: "100%"}}>
+      <Table
+        highlightOnHover
+        withColumnBorders
+        sx={{
+          backdropFilter: "blur(100px)",
+          marginTop: isMobile ? "3rem" : 0,
+          width: isMobile ? "100%" : isTablet ? "80%" : "50%",
+          backgroundColor:
+            theme === "dark"
+              ? "rgba(0, 0, 0, 0.5)"
+              : "rgba(255, 255, 255, 0.5)",
+        }}
       >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backdropFilter: "blur(5px)",
-          }}
-        />
-        <Container sx={{ height: "100%" }}>
-          <BackgroundImage
-            src={!isMobile ? ropepark_pricing1.src : ""}
-            sx={{
-              height: "100%",
-              width: "100%",
-              position: "relative",
-            }}
-          >
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backdropFilter: "blur(-5px)",
-              }}
-            />
-            <Center sx={{ height: "100%" }}>
-              <Table
-                highlightOnHover
-                withColumnBorders
-                sx={{
-                  backdropFilter: "blur(100px)",
-                  marginTop: isMobile ? "3rem" : 0,
-                  width: isMobile ? "100%" : "80%",
-                  backgroundColor: theme === "dark" ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)",
-                }}
-              >
-                <thead>
-                  <tr>
-                    <th>{t("table.header.attraction")}</th>
-                    <th>{t("table.header.normalTicket")}</th>
-                    <th>{t("table.header.childTicket")}</th>
-                    <th>{t("table.header.studentTicket")}</th>
-                    <th>{t("table.header.seniorTicket")}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {pricing.map((row, i) => (
-                    <tr key={i}>
-                      <td>{t(`attractionNames.${i}`)}</td>
-                      {row.map((cell, j) => (
-                        <PriceCell {...cell} key={j} />
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Center>
-          </BackgroundImage>
-        </Container>
-      </BackgroundImage>
-    </Container>
+        <thead>
+          <tr>
+            <th>{t("table.header.attraction")}</th>
+            <th>{t("table.header.normalTicket")}</th>
+            <th>{t("table.header.childTicket")}</th>
+            <th>{t("table.header.studentTicket")}</th>
+            <th>{t("table.header.seniorTicket")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pricing.map((row, i) => (
+            <tr key={i}>
+              <td>{t(`attractionNames.${i}`)}</td>
+              {row.map((cell, j) => (
+                <PriceCell {...cell} key={j} />
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Center>
   );
 }
 

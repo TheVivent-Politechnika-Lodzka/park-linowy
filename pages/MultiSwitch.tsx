@@ -24,9 +24,9 @@ export default function MultiSwitch() {
     <Box
       ref={ref}
       sx={{
-        position: "absolute",
-        top: 0,
-        right: 0,
+        // position: "absolute",
+        // top: 0,
+        // right: 0,
         transform: isMobile && !hovered ? "scale(0.4) translate(100px, -100px)" : "scale(1)",
         width: "9rem !important",
         height: "9rem !important",

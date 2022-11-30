@@ -3,6 +3,7 @@ import {
   Blockquote,
   Center,
   Container,
+  Grid,
   Paper,
   SimpleGrid,
   Space,
@@ -53,24 +54,21 @@ const comments: { author: string; textKey: string }[][] = [
 ];
 
 export default function Attractions() {
-  const { isMobile, isDesktop } = useBreakpoint();
+  const { isDesktop, isMobile, isTablet } = useBreakpoint();
   const [activeSlide, setActiveSlide] = useState<SlideNumber>(0);
   const { t } = useTranslation("pages/attractions/index");
   const [theme] = useTheme();
 
   return (
-    <Container fluid p={0} sx={{ height: "100%" }}>
-      <BackgroundImage
-        src={ropepark_attractions1.src}
-        sx={{ height: "100%", width: "100%" }}
-      >
+    <Grid>
+      <Grid.Col span={12}>
         <Center>
           <Carousel
-            sx={{ width: isMobile ? "100%" : "60%" }}
+            sx={{ width: isMobile ? "100%" : isTablet ? "80%" : "60%" }}
             mt="xl"
-            height={isMobile ? 300 : 500}
+            height={!isDesktop ? 300 : 500}
             withIndicators
-            slideSize={isDesktop ? "33.333333%" : "90vw"}
+            slideSize={isMobile ? "100%" : isTablet ? "50%" : "33.333333%"}
             slideGap="md"
             dragFree
             loop
@@ -109,33 +107,35 @@ export default function Attractions() {
             />
           </Carousel>
         </Center>
-        <Space h="xl" />
-        <Space h="xl" />
-        <Space h="xl" />
-        <Center>
-          <SimpleGrid mx="sm" cols={1} breakpoints={[{ minWidth: "md", cols: 3 }]}>
-            {comments[activeSlide].map((comment, index) => (
-              <Paper
-                key={index}
-                sx={{
-                  backgroudColor:
-                    theme === "dark"
-                      ? "rgba(0,0,0,0.5)"
-                      : "rgba(255,255,255,0.5)",
-                }}
+      </Grid.Col>
+      <Grid.Col xs={12} lg={5} offsetXs={0} offsetLg={1}>
+        <Paper sx={{ height: "100%" }} p="xs">
+          description
+        </Paper>
+      </Grid.Col>
+      <Grid.Col xs={12} lg={5}>
+        <SimpleGrid cols={1}>
+          {comments[activeSlide].map((comment, index) => (
+            <Paper
+              key={index}
+              sx={{
+                backgroudColor:
+                  theme === "dark"
+                    ? "rgba(0,0,0,0.5)"
+                    : "rgba(255,255,255,0.5)",
+              }}
+            >
+              <Blockquote
+                cite={`~${comment.author}`}
+                sx={{ fontSize: isDesktop ? "2rem" : "1.5rem" }}
               >
-                <Blockquote
-                  cite={`~${comment.author}`}
-                  sx={{ fontSize: "2rem" }}
-                >
-                  {t(comment.textKey)}
-                </Blockquote>
-              </Paper>
-            ))}
-          </SimpleGrid>
-        </Center>
-      </BackgroundImage>
-    </Container>
+                {t(comment.textKey)}
+              </Blockquote>
+            </Paper>
+          ))}
+        </SimpleGrid>
+      </Grid.Col>
+    </Grid>
   );
 }
 

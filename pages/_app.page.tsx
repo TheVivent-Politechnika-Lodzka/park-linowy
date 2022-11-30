@@ -1,12 +1,21 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Affix, Center, Container, Text, MantineProvider } from "@mantine/core";
+import {
+  Affix,
+  Center,
+  Container,
+  Text,
+  MantineProvider,
+  AppShell,
+} from "@mantine/core";
 import { appWithTranslation } from "next-i18next";
 import useTheme from "../hooks/useTheme";
 import NextRouterProgressBar from "../components/NextRouterProgressBar";
 import NavBar from "./NavBar";
 import useBreakpoint from "../hooks/useBreakpoint";
 import MultiSwitch from "./MultiSwitch";
+import Footer from "./Footer";
+import ropepark_attractions1 from "../public/images/ropepark_attractions1.jpg";
 
 function App({ Component, pageProps }: AppProps) {
   const [theme] = useTheme();
@@ -31,34 +40,23 @@ function App({ Component, pageProps }: AppProps) {
         }}
       >
         <NextRouterProgressBar />
-        <Container
-          fluid
-          p={0}
-          m={0}
-          sx={{ position: "relative", height: "6.5vh" }}
-        >
-          <NavBar />
-        </Container>
-        <Container
-          fluid
-          m={0}
-          p={0}
-          sx={{ height: "93vh", position: "relative" }}
-        >
+        {/* <Affix sx={{ top: 0, right: 0 }}>
           <MultiSwitch />
+        </Affix> */}
+        <AppShell
+          header={<NavBar />}
+          footer={<Footer />}
+          sx={{
+            backgroundImage: `url(${ropepark_attractions1.src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backdropFilter: "blur(5px)",
+          }}
+        >
+
           <Component {...pageProps} />
-        </Container>
-        <Affix sx={{ backgroundColor: "#333", width: "100vw" }}>
-          <Center sx={{ color: "#AAA" }}>
-            <Text ta="center">
-              <Text>
-                &copy; {new Date().getFullYear()} OnlyRopes - All rights
-                reserved
-              </Text>
-              <Text>by Adam Kapuściński</Text>
-            </Text>
-          </Center>
-        </Affix>
+        </AppShell>
       </MantineProvider>
     </>
   );

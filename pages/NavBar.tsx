@@ -1,9 +1,25 @@
-import { Center, CSSObject, Paper } from "@mantine/core";
+import {
+  CSSObject,
+  Grid,
+  Paper,
+  Switch,
+  Image,
+  Center,
+  SimpleGrid,
+  ActionIcon,
+  Anchor,
+  Drawer,
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { NextLink } from "@mantine/next";
-import { useEffect, useMemo, useState } from "react";
+import { IconSun, IconMoonStars, IconMenu, IconMenu2 } from "@tabler/icons";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { FlagIcon } from "react-flag-kit";
 import { useTranslation } from "react-i18next";
 import useBreakpoint from "../hooks/useBreakpoint";
 import useTheme from "../hooks/useTheme";
+import onlyropes_logo1 from "../public/images/onlyropes_logo1.png";
 
 const menuStyleBase: CSSObject = {
   borderColor: "gray",
@@ -26,61 +42,175 @@ const menuStyleBase: CSSObject = {
 
 export default function NavBar() {
   const { t } = useTranslation("common", { keyPrefix: "navbar" });
-  const { isDesktop, isMobile, isTablet } = useBreakpoint();
-  const [theme] = useTheme();
+  const router = useRouter();
+  const [theme, setTheme] = useTheme();
   const [menuStyle, setMenuStyle] = useState<CSSObject>(menuStyleBase);
+  const matchesLogoNoShrink = useMediaQuery("(max-width: 1200px)", true, {
+    getInitialValueInEffect: false,
+  });
+  const [drawerOpened, setDrawerOpened] = useState(false);
 
   useEffect(() => {
-    const fontSize = isDesktop ? "2.5rem" : isTablet ? "1.5rem" : "1rem";
-    const padding = isDesktop ? "0 0.5rem" : isTablet ? "0 0.5rem" : "0 0.5rem";
+    if (!matchesLogoNoShrink) setDrawerOpened(false);
+  }, [matchesLogoNoShrink]);
+
+  useEffect(() => {
     const hoverColor = theme === "dark" ? "white" : "black";
     setMenuStyle((old) => ({
       ...old,
-      fontSize,
-      padding,
       "&:hover": {
-        ...old["&:hover"] as object,
+        ...(old["&:hover"] as object),
         color: hoverColor,
       },
     }));
-  }, [isDesktop, isMobile, isTablet, theme]);
+  }, [theme]);
 
   return (
     <>
-      <Center>
-        <Paper
+      <Drawer opened={drawerOpened} onClose={() => setDrawerOpened(false)}>
+        <Anchor
           component={NextLink}
-          href={{ pathname: "/" }}
+          href={{
+            pathname: "/",
+          }}
           legacyBehavior
-          sx={menuStyle}
         >
-          {t("home")}
-        </Paper>
-        <Paper
-          component={NextLink}
-          href={{ pathname: "/pricing" }}
-          legacyBehavior
-          sx={menuStyle}
-        >
-          {t("pricing")}
-        </Paper>
-        <Paper
-          component={NextLink}
-          href={{ pathname: "/contact" }}
-          legacyBehavior
-          sx={menuStyle}
-        >
-          {t("contact")}
-        </Paper>
-        <Paper
-          component={NextLink}
-          href={{ pathname: "/attractions" }}
-          legacyBehavior
-          sx={menuStyle}
-        >
-          {t("attractions")}
-        </Paper>
-      </Center>
+          <Image
+            src={onlyropes_logo1.src}
+            alt="logo"
+            height={80}
+            fit="contain"
+          />
+        </Anchor>
+        <SimpleGrid cols={1}>
+          <Paper
+            component={NextLink}
+            href={{ pathname: "/" }}
+            legacyBehavior
+            sx={menuStyle}
+          >
+            {t("home")}
+          </Paper>
+          <Paper
+            component={NextLink}
+            href={{ pathname: "/pricing" }}
+            legacyBehavior
+            sx={menuStyle}
+          >
+            {t("pricing")}
+          </Paper>
+          <Paper
+            component={NextLink}
+            href={{ pathname: "/contact" }}
+            legacyBehavior
+            sx={menuStyle}
+          >
+            {t("contact")}
+          </Paper>
+          <Paper
+            component={NextLink}
+            href={{ pathname: "/attractions" }}
+            legacyBehavior
+            sx={menuStyle}
+          >
+            {t("attractions")}
+          </Paper>
+        </SimpleGrid>
+      </Drawer>
+      <Paper p="xs">
+        <Grid>
+          <Grid.Col span="auto" ta="start">
+            <Center sx={{ height: "100%" }} inline>
+              <Anchor
+                component={NextLink}
+                href={{
+                  pathname: "/",
+                }}
+                legacyBehavior
+              >
+                <Image
+                  src={onlyropes_logo1.src}
+                  alt="logo"
+                  height={80}
+                  fit="contain"
+                />
+              </Anchor>
+            </Center>
+          </Grid.Col>
+          <Grid.Col span="content" hidden={matchesLogoNoShrink}>
+            <Paper
+              component={NextLink}
+              href={{ pathname: "/" }}
+              legacyBehavior
+              sx={menuStyle}
+            >
+              {t("home")}
+            </Paper>
+          </Grid.Col>
+          <Grid.Col span="content" hidden={matchesLogoNoShrink}>
+            <Paper
+              component={NextLink}
+              href={{ pathname: "/pricing" }}
+              legacyBehavior
+              sx={menuStyle}
+            >
+              {t("pricing")}
+            </Paper>
+          </Grid.Col>
+          <Grid.Col span="content" hidden={matchesLogoNoShrink}>
+            <Paper
+              component={NextLink}
+              href={{ pathname: "/contact" }}
+              legacyBehavior
+              sx={menuStyle}
+            >
+              {t("contact")}
+            </Paper>
+          </Grid.Col>
+          <Grid.Col span="content" hidden={matchesLogoNoShrink}>
+            <Paper
+              component={NextLink}
+              href={{ pathname: "/attractions" }}
+              legacyBehavior
+              sx={menuStyle}
+            >
+              {t("attractions")}
+            </Paper>
+          </Grid.Col>
+          <Grid.Col span="auto" ta="end" px="xl">
+            <SimpleGrid verticalSpacing={0} cols={1}>
+              <Switch
+                size="lg"
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onLabel={<IconSun size={16} stroke={2.5} color="yellow" />}
+                offLabel={
+                  <IconMoonStars size={16} stroke={2.5} color="yellow" />
+                }
+              />
+              <Switch
+                size="lg"
+                onLabel={<FlagIcon code="PL" size={16} />}
+                offLabel={<FlagIcon code="GB" size={16} />}
+                onChange={() =>
+                  router.push(router.pathname, router.pathname, {
+                    locale: router.locale === "pl" ? "en" : "pl",
+                  })
+                }
+              />
+            </SimpleGrid>
+          </Grid.Col>
+          <Grid.Col span="content" hidden={!matchesLogoNoShrink}>
+            <Center sx={{ height: "100%", width: "70px" }}>
+              <ActionIcon
+                sx={{ scale: "3" }}
+                onClick={() => setDrawerOpened(true)}
+              >
+                <IconMenu2 size={148} />
+              </ActionIcon>
+            </Center>
+          </Grid.Col>
+        </Grid>
+      </Paper>
     </>
   );
 }
