@@ -1,7 +1,7 @@
 {
   "attractions": {
     "easy": {
-      "label": "Route: Easy Peasy",
+      "label": "Trasa: Bułka z masłem",
       "comment": [
         "This is a route that is easy to follow and has a lot of attractions along the way.",
         "It is a good route for beginners.",
@@ -9,21 +9,21 @@
       ]
     },
     "medium": {
-      "label": "Route: Pretty... Average",
+      "label": "Trasa: Całkiem średnia",
       "comment": [
         "This is a route that is not too hard to follow and has a few attractions along the way.",
         "Wspaniała trasa dla początkujących."
       ]
     },
     "hard": {
-      "label": "Route: This is where the fun begins",
+      "label": "Trasa: Koniec żartów",
       "comment": [
         "Trasa, która wymaga większej koncentracji i jest trudniejsza do przejścia.",
         "Przejście tej trasy daje wiele satysfakcji."
       ]
     },
     "veryhard": {
-      "label": "Route: Floor is Lava",
+      "label": "Trasa: Podłoga to lawa",
       "comment": [
         "You need to be a pro to follow this route. Lava is everywhere.",
         "Lawa na tej trasie stanowi pewne zagrożenie.",
@@ -31,14 +31,14 @@
       ]
     },
     "almostdie": {
-      "label": "Route: The End",
+      "label": "Trasa: Na koniec świata",
       "comment": [
         "Podczas trasy trzeba uważać na smoki i inne potwory.",
         "Trasa ta jest bardzo trudna do przejścia."
       ]
     },
     "imdead": {
-      "label": "Route: Highway to Hell",
+      "label": "Trasa: Highway to Hell",
       "comment": ["Spotkałem wszystkie osoby które próbowały przejść tą trasę."]
     }
   }
