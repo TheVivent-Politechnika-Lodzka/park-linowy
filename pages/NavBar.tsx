@@ -22,7 +22,7 @@ import useTheme from "../hooks/useTheme";
 import onlyropes_logo1 from "../public/images/onlyropes_logo1.png";
 
 const menuStyleBase: CSSObject = {
-  borderColor: "gray",
+  backgroundColor: "rgba(0, 0, 0, 0)",
   display: "flex",
   justifyContent: "center",
   fontSize: "2.5rem",
